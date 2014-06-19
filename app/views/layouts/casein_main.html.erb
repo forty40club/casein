@@ -30,10 +30,11 @@
     <div class="navbar navbar-static-top">
       <% if @session_user != nil %>
         <div class="container">
+	        <%= link_to(image_tag(casein_config_logo, :alt => casein_config_website_name), {:controller => :casein}, :class => "navbar-brand") %>   
+
           <div id="user-info">
             <ul>
               <li class="hidden-sm">Hello <%= @session_user.name %></li>
-              <li class="hidden-sm"><%= Time.zone.name %></li>
               <li><%= link_to 'Profile', casein_admin_user_path(@session_user) %></li>
 
               <% if @session_user.is_admin? %>
@@ -47,9 +48,6 @@
         </div>
       <% end %>
 
-      <div class="container">
-        <%= link_to(image_tag(casein_config_logo, :alt => casein_config_website_name), {:controller => :casein}, :class => "navbar-brand") %>   
-      </div>
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
